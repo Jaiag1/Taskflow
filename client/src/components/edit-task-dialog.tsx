@@ -29,6 +29,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+import { DatePicker } from "@/components/ui/date-picker";
 
 interface EditTaskDialogProps {
   task: Task | null;
@@ -146,7 +147,11 @@ export default function EditTaskDialog({ task, open, onOpenChange }: EditTaskDia
                 <FormItem>
                   <FormLabel>Due Date</FormLabel>
                   <FormControl>
-                    <Input type="date" {...field} />
+                    <DatePicker
+                      value={field.value}
+                      onChange={field.onChange}
+                      placeholder="Select due date"
+                    />
                   </FormControl>
                   <FormMessage />
                 </FormItem>
