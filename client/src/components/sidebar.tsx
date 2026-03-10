@@ -33,14 +33,14 @@ export default function Sidebar({
   const categoryStats = getTaskCountByCategory(tasks);
 
   return (
-    <div className="w-64 bg-white shadow-lg border-r border-gray-200 flex-shrink-0">
+    <div className="w-64 bg-card shadow-lg border-r border-border flex-shrink-0">
       {/* Header */}
-      <div className="p-6 border-b border-gray-200">
-        <h1 className="text-2xl font-bold text-gray-900 flex items-center gap-2">
+      <div className="p-6 border-b border-border">
+        <h1 className="text-2xl font-bold text-foreground flex items-center gap-2">
           <List className="text-primary h-6 w-6" />
           TaskMaster
         </h1>
-        <p className="text-sm text-gray-500 mt-1">Organize your life</p>
+        <p className="text-sm text-muted-foreground mt-1">Organize your life</p>
       </div>
 
       {/* Navigation */}
@@ -53,7 +53,7 @@ export default function Sidebar({
                 "w-full flex items-center gap-3 px-3 py-2 text-left rounded-lg transition-colors",
                 activeView === "all" && !selectedCategory
                   ? "bg-primary text-white"
-                  : "text-gray-700 hover:bg-gray-100"
+                  : "text-foreground hover:bg-muted"
               )}
             >
               <List className="h-4 w-4" />
@@ -77,7 +77,7 @@ export default function Sidebar({
                 "w-full flex items-center gap-3 px-3 py-2 text-left rounded-lg transition-colors",
                 activeView === "today"
                   ? "bg-primary text-white"
-                  : "text-gray-700 hover:bg-gray-100"
+                  : "text-foreground hover:bg-muted"
               )}
             >
               <Calendar className="h-4 w-4" />
@@ -101,7 +101,7 @@ export default function Sidebar({
                 "w-full flex items-center gap-3 px-3 py-2 text-left rounded-lg transition-colors",
                 activeView === "week"
                   ? "bg-primary text-white"
-                  : "text-gray-700 hover:bg-gray-100"
+                  : "text-foreground hover:bg-muted"
               )}
             >
               <CalendarDays className="h-4 w-4" />
@@ -120,11 +120,11 @@ export default function Sidebar({
           </li>
         </ul>
 
-        <hr className="my-4 border-gray-200" />
+        <hr className="my-4 border-border" />
 
         {/* Categories */}
         <div className="mb-4">
-          <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-2">
+          <h3 className="text-sm font-semibold text-muted-foreground uppercase tracking-wide mb-2">
             Categories
           </h3>
           <ul className="space-y-1">
@@ -136,7 +136,7 @@ export default function Sidebar({
                     "w-full flex items-center gap-3 px-3 py-2 text-left rounded-lg transition-colors",
                     selectedCategory === category
                       ? "bg-primary text-white"
-                      : "text-gray-700 hover:bg-gray-100"
+                      : "text-foreground hover:bg-muted"
                   )}
                 >
                   <div
@@ -151,7 +151,7 @@ export default function Sidebar({
                       "ml-auto text-xs",
                       selectedCategory === category
                         ? "text-white"
-                        : "text-gray-500"
+                        : "text-muted-foreground"
                     )}
                   >
                     {count}
@@ -160,7 +160,7 @@ export default function Sidebar({
               </li>
             ))}
           </ul>
-          <button className="w-full flex items-center gap-2 px-3 py-2 mt-2 text-left rounded-lg text-gray-500 hover:bg-gray-100 transition-colors text-sm">
+          <button className="w-full flex items-center gap-2 px-3 py-2 mt-2 text-left rounded-lg text-muted-foreground hover:bg-muted transition-colors text-sm">
             <Plus className="h-4 w-4" />
             <span>Add Category</span>
           </button>

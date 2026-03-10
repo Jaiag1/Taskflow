@@ -68,8 +68,8 @@ export default function TaskForm() {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6 mb-6">
-      <h3 className="text-lg font-semibold text-gray-900 mb-4 flex items-center gap-2">
+    <div className="bg-card rounded-xl shadow-sm border border-border p-6 mb-6">
+      <h3 className="text-lg font-semibold text-foreground mb-4 flex items-center gap-2">
         <PlusCircle className="text-primary h-5 w-5" />
         Add New Task
       </h3>
@@ -148,7 +148,7 @@ export default function TaskForm() {
                     />
                   </FormControl>
                   <div className="space-y-1 leading-none">
-                    <FormLabel className="text-sm text-gray-600">
+                    <FormLabel className="text-sm text-muted-foreground">
                       High Priority
                     </FormLabel>
                   </div>

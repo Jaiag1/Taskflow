@@ -22,17 +22,17 @@ export default function TaskList({
   return (
     <div className="space-y-4">
       {/* Active Tasks */}
-      <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <div className="bg-card rounded-xl shadow-sm border border-border p-6">
         <div className="flex items-center justify-between mb-4">
-          <h3 className="text-lg font-semibold text-gray-900">Active Tasks</h3>
-          <span className="text-sm text-gray-500">
+          <h3 className="text-lg font-semibold text-foreground">Active Tasks</h3>
+          <span className="text-sm text-muted-foreground">
             {activeTasks.length} {activeTasks.length === 1 ? 'task' : 'tasks'}
           </span>
         </div>
 
         {activeTasks.length === 0 ? (
-          <div className="text-center py-8 text-gray-500">
-            <CheckCircle className="h-12 w-12 mx-auto mb-4 text-gray-300" />
+          <div className="text-center py-8 text-muted-foreground">
+            <CheckCircle className="h-12 w-12 mx-auto mb-4 text-border" />
             <p>No active tasks found</p>
             <p className="text-sm">Create a new task to get started</p>
           </div>
@@ -52,17 +52,17 @@ export default function TaskList({
 
       {/* Completed Tasks */}
       {completedTasks.length > 0 && (
-        <div className="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+        <div className="bg-card rounded-xl shadow-sm border border-border p-6">
           <button
             onClick={() => setShowCompleted(!showCompleted)}
             className="flex items-center justify-between w-full mb-4 text-left"
           >
-            <h3 className="text-lg font-semibold text-gray-900 flex items-center gap-2">
+            <h3 className="text-lg font-semibold text-foreground flex items-center gap-2">
               <CheckCircle className="text-success h-5 w-5" />
               Completed Tasks
             </h3>
             <div className="flex items-center gap-2">
-              <span className="text-sm text-gray-500">
+              <span className="text-sm text-muted-foreground">
                 {completedTasks.length} {completedTasks.length === 1 ? 'task' : 'tasks'}
               </span>
               <ChevronDown
