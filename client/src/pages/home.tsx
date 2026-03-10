@@ -8,7 +8,7 @@ import TaskList from "@/components/task-list";
 import EditTaskDialog from "@/components/edit-task-dialog";
 import DeleteConfirmationDialog from "@/components/delete-confirmation-dialog";
 import { getFilteredTasks } from "@/lib/date-utils";
-import { Search } from "lucide-react";
+import { Search, X } from "lucide-react";
 
 type ViewType = "all" | "today" | "week";
 type CategoryType = "work" | "personal" | "shopping" | "fitness" | null;
@@ -99,9 +99,18 @@ export default function Home() {
                   placeholder="Search tasks..."
                   value={searchTerm}
                   onChange={(e) => setSearchTerm(e.target.value)}
-                  className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent w-64"
+                  className="pl-10 pr-8 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent w-64"
                 />
                 <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                {searchTerm && (
+                  <button
+                    onClick={() => setSearchTerm("")}
+                    className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                    aria-label="Clear search"
+                  >
+                    <X className="h-4 w-4" />
+                  </button>
+                )}
               </div>
             </div>
           </div>

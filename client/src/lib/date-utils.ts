@@ -66,13 +66,26 @@ export const getFilteredTasks = (
     filtered = filtered.filter(task => task.category === category);
   }
 
-  // Filter by search term
+  // Filter by search term — each space-separated word must prefix-match a token
+  // in the task title, category, or due date. This means "grocery" matches
+  // "groceries" and "quarter" matches "quarterly", but "pl" won't match "complete".
   if (searchTerm.trim()) {
-    const search = searchTerm.toLowerCase();
-    filtered = filtered.filter(task =>
-      task.title.toLowerCase().includes(search) ||
-      task.category.toLowerCase().includes(search)
-    );
+    const words = searchTerm.trim().toLowerCase().split(/\s+/);
+    filtered = filtered.filter(task => {
+      const haystack = [
+        task.title,
+        task.category,
+        task.dueDate ?? "",
+      ]
+        .join(" ")
+        .toLowerCase();
+
+      const tokens = haystack.split(/\W+/);
+      // Every search word must be a prefix of at least one token in the haystack
+      return words.every(word =>
+        tokens.some(token => token.startsWith(word))
+      );
+    });
   }
 
   return filtered;
